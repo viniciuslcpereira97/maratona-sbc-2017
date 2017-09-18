@@ -37,7 +37,8 @@ def playChord(keys, chord):
     if len(keys[chord[0] : chord[1] + 1]) == len( set(keys[chord[0] : chord[1] + 1]) ):
         mostfrequent = max( keys[chord[0] : chord[1] + 1] )
     else:
-        mostfrequent = max( set(keys[chord[0] : chord[1] + 1]), key=keys.count )
+        tmp_keys = keys[chord[0] : chord[1] + 1]
+        mostfrequent = max(set(tmp_keys), key=tmp_keys.count)
 
     for index, key in enumerate( keys[chord[0] : chord[1] + 1] ):
         keys[index + chord[0]] = (key + mostfrequent) % 9
